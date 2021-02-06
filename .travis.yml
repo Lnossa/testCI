@@ -4,3 +4,4 @@ compiler: gcc
 os: linux
 arch:
   - arm64
+script: make
