@@ -1,7 +1,10 @@
 on: push
 language: cpp
-compiler: gcc
+compiler: g++
 os: linux
-arch:
-  - arm64
-script: make
+arch: arm64
+script: 
+  -mkdir build
+  -cd build
+  -cmake ../
+  -make
