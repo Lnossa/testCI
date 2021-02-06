@@ -3,4 +3,4 @@ language: cpp
 compiler: g++
 os: linux
 arch: arm64
-script: ./build.sh
+script: chmod ugo+x build.sh && ./build.sh
