@@ -3,8 +3,4 @@ language: cpp
 compiler: g++
 os: linux
 arch: arm64
-script: 
-  -mkdir build
-  -cd build
-  -cmake ../
-  -make
+script: build.sh
