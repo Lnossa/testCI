@@ -22,7 +22,7 @@ addons:
       description: "Test CI"
     notification_email: liviunossa@gmail.com
     build_command: "chmod ugo+x build.sh && ./build.sh"
-    branch_pattern: coverity_scan
+    branch_pattern: master
 
 #**************COVERITY END**************
 
