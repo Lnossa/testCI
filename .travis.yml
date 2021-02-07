@@ -3,4 +3,27 @@ language: cpp
 compiler: g++
 os: linux
 arch: arm64
+
+#**************COVERITY BEGIN**************
+
+env:
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "bDfBntb195Li/2Bo4JNc0blLg45KaGQm/ZxVfNwc+Y5dvvMzu0v7TKXoejSiShqDrN2a+bkZdY+7MVVtisRcE1RdQP5uotTSWyb9YLcefXYCWPX11XMZsjeSZnLXGyfVN6d68JHGFdvYnNK/qwQIq95Lz+pSlBqxUntZhFDL2rp1kizu2NzLUh/RaZH4vfnJ2A2OeV2GCF+CLpG5rxjVkHNoL4en2FBWwwP8VfBXfBTtnZnolWFqmuG9sKOz0j4jEwKo0lUtI96c1Bb2jCGtEQw5YipnTCrnbz02jsNTmu3VzPlYBkVjOe8CdQa+hKVB0DFiDelkKckcZCgvgrErtUDn5tybRLD+/4Eq7Xt8vDm2AvgNhsKSl67oYm1RrPFjcmlp28vlZ3aCMV/t3ao7LxbW6HS7LW7Qm8wCb2fUNQvAfk34ULURJgwAglXcj24HZ0H0ArP1D3svoirsko+kmnTjAlgExoOPtb/gj6c+sBLiagduyera1tE38GF0+w9icXQ7pTO/dBtuVF59/RryBitWor8owSajuqs08GA2MzvCMdbuMeHf9TO+Ho9iKg74yVZUpo4AUmlHJjwB/D1bRpLT6x7eSyHBO3KD0MjO0wUW2K5B6VlSU++E/KHSSdUYRCwexdt6wsyeCHvYUG7YATRKzTGc3IrvS2C8ZYygAxg="
+
+before_install:
+  - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+
+addons:
+  coverity_scan:
+    project:
+      name: "Lnossa/testCI"
+      description: "Test CI"
+    notification_email: liviunossa@gmail.com
+    build_command: "chmod ugo+x build.sh && ./build.sh"
+    branch_pattern: coverity_scan
+
+#**************COVERITY END**************
+
 script: chmod ugo+x build.sh && ./build.sh
