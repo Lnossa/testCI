@@ -13,7 +13,6 @@ addons:
       name: Lnossa/testCI
       description: Test CI
     notification_email: liviunossa@gmail.com
-    build_command_prepend: cov-configure  --compiler  arm-linux-gnueabihf-gcc --comptype gcc   --template 
     build_command: chmod ugo+x build.sh && ./build.sh
     branch_pattern: master
 script: chmod ugo+x build.sh && ./build.sh
