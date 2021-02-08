@@ -2,7 +2,14 @@
 
 class A
 {
+private:
     int x;
+    
+public:
+    A()
+    {
+        x = 12345;
+    }
 };
 
 int f()
