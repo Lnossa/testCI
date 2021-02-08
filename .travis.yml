@@ -13,9 +13,11 @@ addons:
       name: Lnossa/testCI
       description: Test CI
     notification_email: liviunossa@gmail.com
-    build_command: chmod ugo+x build.sh && ./build.sh
+    build_command: #chmod ugo+x build.sh && ./build.sh
+      - cmake .
+      - make
     branch_pattern: master
-    
+
 script: #chmod ugo+x build.sh && ./build.sh
   - cmake .
   - make
