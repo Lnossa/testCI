@@ -15,4 +15,6 @@ dist: xenial
 #     notification_email: liviunossa@gmail.com
 #     build_command: chmod ugo+x build.sh && ./build.sh
 #     branch_pattern: master
-script: chmod ugo+x build.sh && ./build.sh
+script: #chmod ugo+x build.sh && ./build.sh
+  - cmake .
+  - make
