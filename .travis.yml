@@ -1,6 +1,6 @@
 language: cpp
 compiler: g++
-arch: arm64
+arch: amd64 #arm64
 os: linux
 dist: xenial
 
